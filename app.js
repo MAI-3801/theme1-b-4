@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const addButton = document.querySelector('.btn-add, #btn-add');
 	const popup = document.querySelector('.pop-up, #pop-up');
 	const confirmButton = document.querySelector('.btn-confirm, #btn-confirm');
+	const cancelButton = document.querySelector('.btn-cancel, #btn-cancel');
 	const itemList = document.querySelector('.itemlist, #itemlist');
 
 	if (addButton && popup) {
@@ -28,6 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
 				popup.style.display = 'none';
 				popup.classList.remove('show');
 			}
+		});
+	}
+
+	if (cancelButton && popup) {
+		cancelButton.addEventListener('click', () => {
+			popup.hidden = true;
+			popup.style.display = 'none';
+			popup.classList.remove('show');
 		});
 	}
 });
