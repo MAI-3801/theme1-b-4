@@ -13,6 +13,28 @@ h2 {
 	line-height: 1.3;
 }
 
+h1 {
+	position: relative;
+	margin: 8px 0 24px;
+	padding-bottom: 10px;
+	font-family: Georgia, 'Times New Roman', serif;
+	font-size: 36px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	color: #26352f;
+}
+
+h1::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 72px;
+	height: 4px;
+	border-radius: 2px;
+	background: #d7a84a;
+}
+
 button,
 input {
 	min-height: 44px;
@@ -94,7 +116,9 @@ label {
 	}
 
 	h1 {
+		margin-bottom: 20px;
 		font-size: 28px;
+		letter-spacing: 1px;
 	}
 
 	button,
