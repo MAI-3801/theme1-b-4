@@ -8,6 +8,31 @@
 </head>
 <body>
 	<h1>HOMESTOCK</h1>
-	<script src="app.js" defer></script>
+	<div class="itemlist">
+		<h2>登録したもの</h2>
+		<button id="btn-add" type="button">追加</button>
+		<ul>
+			<!-- 登録したアイテムをここに表示します -->
+			<li class="item"><span class="item-name"></span></li>
+		</ul>
+	</div>
+
+	<div id="pop-up" role="dialog" aria-modal="true" aria-labelledby="popup-title" hidden>
+		<div class="popup-content">
+			<h2 id="popup-title">アイテムを追加</h2>
+			<label for="input-name">名前</label>
+			<input id="input-name" type="text" name="name">
+			<label for="input-num">数字</label>
+			<input id="input-num" type="number" name="num">
+			<label for="input-unit">単位</label>
+			<input id="input-unit" type="text" name="unit">
+			<button id="btn-confirm" type="button">確定</button>
+			<button id="btn-cancel" type="button">閉じる</button>
+		</div>
+	</div>
+
+	
+
+	<script src="app.js"></script>
 </body>
 </html>
