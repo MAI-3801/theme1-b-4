@@ -15,15 +15,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (confirmButton && itemList) {
 		confirmButton.addEventListener('click', () => {
-			const input = popup?.querySelector('input, textarea');
-			const value = input?.value.trim();
-			if (!value) return;
+				const nameInput = document.querySelector('#input-name, .input-name');
+			const numInput = document.querySelector('#input-num, .input-num');
+			const unitInput = document.querySelector('#input-unit, .input-unit');
+				const name = nameInput?.value.trim();
+			const num = numInput?.value.trim();
+			const unit = unitInput?.value.trim();
+				if (!name || !num || !unit) return;
 
 			const item = document.createElement('li');
-			item.textContent = value;
+				item.textContent = `${name} ${num}${unit}`;
 			itemList.appendChild(item);
 
-			input.value = '';
+				if (nameInput) nameInput.value = '';
+			if (numInput) numInput.value = '';
+			if (unitInput) unitInput.value = '';
 			if (popup) {
 				popup.hidden = true;
 				popup.style.display = 'none';
