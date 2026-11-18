@@ -24,7 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
 				if (!name || !num || !unit) return;
 
 			const item = document.createElement('li');
-				item.textContent = `${name} ${num}${unit}`;
+				const nameText = document.createElement('span');
+				nameText.textContent = `${name} `;
+				const numInput = document.createElement('input');
+				numInput.type = 'number';
+				numInput.value = num;
+				numInput.min = '0';
+				const unitText = document.createElement('span');
+				unitText.textContent = unit;
+				item.append(nameText, numInput, unitText);
 			itemList.appendChild(item);
 
 				if (nameInput) nameInput.value = '';
@@ -46,6 +54,5 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 });
-
 
 
