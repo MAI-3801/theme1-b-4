@@ -7,6 +7,35 @@ document.addEventListener('DOMContentLoaded', () => {
 	let editingItem = null;
 	let currentTab = 'all';
 
+	document.querySelectorAll('.btn-edit').forEach(button => {
+    	button.addEventListener('click', () => {
+        	const item = button.closest('li');
+
+        	editingItem = item;
+
+        	const nameInput = document.querySelector('#input-name');
+        	const numInput = document.querySelector('#input-num');
+        	const unitInput = document.querySelector('#input-unit');
+        	const typeInput = document.querySelector('#input-type');
+
+        	nameInput.value =
+            	item.querySelector('.item-name').textContent;
+
+        	numInput.value =
+            	item.querySelector('.item-num').value;
+
+        	unitInput.value =
+            	item.querySelector('.item-unit').textContent;
+
+        	typeInput.value =
+            	item.dataset.type;
+
+        	popup.hidden = false;
+        	popup.style.display = 'block';
+        	popup.classList.add('show');
+    	});
+	});
+
 	if (addButton && popup) {
 		addButton.addEventListener('click', () => {
 			popup.hidden = false;
@@ -65,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				unitText.textContent = unit;
 				unitText.classList.add('item-unit');
 				const editButton = document.createElement('button');
+				editButton.classList.add('btn-edit');
 				editButton.textContent = '編集';
 				editButton.addEventListener('click', () => {
 					editingItem = item;
