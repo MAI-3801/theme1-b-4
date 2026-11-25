@@ -8,27 +8,41 @@
 </head>
 <body>
 	<h1>HOMESTOCK</h1>
+	<div class="item-tab">
+    	<button data-type="all">すべて</button>
+    	<button data-type="食品">食品</button>
+    	<button data-type="日用品">日用品</button>
+    	<button data-type="その他">その他</button>
+	</div>
 	<div class="itemlist">
 		<ul>
 			<!-- 登録したアイテムをここに表示します -->
 			<li class="item">
-				<span class="item-name"></span>
-				<span class="item-num"></span>
-				<span class="item-unit"></span>
+				<span class="item-name">卵</span>
+				<input class="item-num" type="number" value="10" min="0">
+				<span class="item-unit">個</span>
 			</li>
 		</ul>
 		<button id="btn-add" type="button">追加</button>
 	</div>
+
+
 
 	<div id="pop-up" role="dialog" aria-modal="true" aria-labelledby="popup-title" hidden>
 		<div class="popup-content">
 			<h2 id="popup-title">アイテムを追加</h2>
 			<label for="input-name">名前</label>
 			<input id="input-name" type="text" name="name">
-			<label for="input-num">数字</label>
+			<label for="input-num">個数</label>
 			<input id="input-num" type="number" name="num">
 			<label for="input-unit">単位</label>
 			<input id="input-unit" type="text" name="unit">
+			<label for="input-type">カテゴリ</label>
+			<select id="input-type">
+    			<option value="食品">食品</option>
+    			<option value="日用品">日用品</option>
+    			<option value="その他">その他</option>
+			</select>
 			<button id="btn-confirm" type="button">確定</button>
 			<button id="btn-cancel" type="button">閉じる</button>
 		</div>
