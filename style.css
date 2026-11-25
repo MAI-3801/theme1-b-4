@@ -106,4 +106,151 @@ label {
     font-weight: 600;
 }
 
-/* ---------- タ
+/* ---------- タブ ---------- */
+
+.item-tab {
+    width: 320px;
+
+    display: flex;
+    gap: 8px;
+
+    margin-bottom: 16px;
+}
+
+.item-tab button {
+    flex: 1;
+    min-width: 0;
+
+    background: white;
+    color: #26352f;
+
+    border: 1px solid #26352f;
+    font-size: 14px;
+}
+
+.item-tab button:hover {
+    background: #26352f;
+    color: white;
+}
+
+/* ---------- アイテム一覧 ---------- */
+
+#itemlist {
+    width: 320px;
+
+    padding: 0;
+    margin: 0 0 16px;
+
+    list-style: none;
+}
+
+#itemlist li {
+    display: grid;
+    grid-template-columns: 1fr 80px 60px;
+
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 16px;
+    margin-bottom: 12px;
+
+    background: white;
+
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.item-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    font-weight: 600;
+}
+
+.item-num {
+    width: 80px;
+    min-width: 80px;
+
+    min-height: 36px;
+
+    text-align: center;
+}
+
+.item-unit {
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* ---------- 追加ボタン ---------- */
+
+#btn-add {
+    width: 320px;
+}
+
+/* ---------- ポップアップ ---------- */
+
+#pop-up[hidden] {
+    display: none;
+}
+
+#pop-up {
+    position: fixed;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    padding: 16px;
+
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    width: 360px;
+
+    padding: 24px;
+
+    background: white;
+
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.popup-content input,
+.popup-content select {
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.popup-content button {
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* ---------- スマホ ---------- */
+
+@media (max-width: 480px) {
+    .item-tab,
+    #itemlist,
+    #btn-add,
+    .popup-content {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    #itemlist li {
+        grid-template-columns: 1fr 70px 50px;
+        gap: 8px;
+    }
+
+    .item-num {
+        width: 70px;
+        min-width: 70px;
+    }
+
+    h1 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+}
