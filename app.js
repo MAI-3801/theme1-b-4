@@ -22,17 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
 			const num = numInput?.value.trim();
 			const unit = unitInput?.value.trim();
 				if (!name || !num || !unit) return;
+			const typeInput = document.querySelector('#input-type');
+			const type = typeInput?.value;
 
 			const item = document.createElement('li');
+				item.dataset.type = type;
 				const nameText = document.createElement('span');
 				nameText.textContent = `${name} `;
-				const numText = document.createElement('input');
-				numInput.type = 'number';
-				numInput.value = num;
-				numInput.min = '0';
+				const itemNumInput = document.createElement('input');
+				itemNumInput.type = 'number';
+				itemNumInput.value = num;
+				itemNumInput.min = '0';
 				const unitText = document.createElement('span');
 				unitText.textContent = unit;
-				item.append(nameText, numInput, unitText);
+				item.append(nameText, itemNumInput, unitText);
 			itemList.appendChild(item);
 
 				if (nameInput) nameInput.value = '';
@@ -52,7 +55,27 @@ document.addEventListener('DOMContentLoaded', () => {
 			popup.style.display = 'none';
 			popup.classList.remove('show');
 		});
-	}
-});
+	}	const tabButtons = document.querySelectorAll('.item-tab button');
 
+	tabButtons.forEach(button => {
+    	button.addEventListener('click', () => {
+        	const selectedType = button.dataset.type;
+
+        	document.querySelectorAll('#itemlist li').forEach(item => {
+
+            	if (
+                	selectedType === 'all' ||
+                	item.dataset.type === selectedType
+            	) {
+                	item.style.display = '';
+            	} else {
+                	item.style.display = 'none';
+            	}
+
+         	});
+    	});
+	});
+
+
+});
 
