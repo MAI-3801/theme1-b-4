@@ -14,17 +14,17 @@
     	<button data-type="日用品">日用品</button>
     	<button data-type="その他">その他</button>
 	</div>
-	<div class="itemlist">
-		<ul>
-			<!-- 登録したアイテムをここに表示します -->
-			<li class="item">
-				<span class="item-name">卵</span>
-				<input class="item-num" type="number" value="10" min="0">
-				<span class="item-unit">個</span>
-			</li>
-		</ul>
-		<button id="btn-add" type="button">追加</button>
-	</div>
+
+	<ul id="itemlist" class="item-list">
+		<!-- 登録したアイテムをここに表示します -->
+		<li class="item" data-type="食品">
+			<span class="item-name">卵</span>
+			<input class="item-num" type="number" value="10" min="0">
+			<span class="item-unit">個</span>
+		</li>
+	</ul>
+	<button id="btn-add" type="button">追加</button>
+
 
 
 
