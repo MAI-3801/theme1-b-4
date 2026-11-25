@@ -21,22 +21,28 @@ h2 {
 
 h1 {
     position: relative;
+
     margin: 8px 0 32px;
     padding-bottom: 10px;
+
     font-family: Georgia, "Times New Roman", serif;
     font-size: 36px;
     font-weight: 700;
     letter-spacing: 2px;
+
     color: #26352f;
 }
 
 h1::after {
     content: "";
+
     position: absolute;
     left: 0;
     bottom: 0;
+
     width: 72px;
     height: 4px;
+
     border-radius: 2px;
     background: #d7a84a;
 }
@@ -47,10 +53,11 @@ h2 {
     color: #26352f;
 }
 
+/* ---------- 共通 ---------- */
+
 button,
 input,
 select {
-    width: 320px;
     min-height: 44px;
     font: inherit;
     touch-action: manipulation;
@@ -58,12 +65,16 @@ select {
 
 button {
     padding: 10px 16px;
+
     border: none;
     border-radius: 8px;
+
     background: #26352f;
     color: white;
+
     font-size: 16px;
     cursor: pointer;
+
     transition: 0.2s;
 }
 
@@ -74,9 +85,11 @@ button:hover {
 input,
 select {
     padding: 10px 12px;
+
     border: 1px solid #ccc;
     border-radius: 8px;
-    background: white;
+
+    background: #fff;
     font-size: 16px;
 }
 
@@ -93,126 +106,4 @@ label {
     font-weight: 600;
 }
 
-.item-tab {
-    width: 320px;
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-.item-tab button {
-    flex: 1;
-    min-width: 0;
-
-    background: white;
-    color: #26352f;
-    border: 1px solid #26352f;
-
-    font-size: 14px;
-}
-
-.item-tab button:hover {
-    background: #26352f;
-    color: white;
-}
-
-.itemlist {
-    width: 320px;
-}
-
-.itemlist ul {
-    padding: 0;
-    margin: 0 0 16px;
-    list-style: none;
-}
-
-.itemlist li {
-    display: grid;
-    grid-template-columns: 1fr 80px 60px;
-    align-items: center;
-    gap: 12px;
-
-    padding: 12px 16px;
-    margin-bottom: 12px;
-
-    background: white;
-    border-radius: 8px;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.item-name {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: 600;
-}
-
-.item-unit {
-    white-space: nowrap;
-    text-align: center;
-}
-
-.item-num {
-    width: 80px;
-    min-height: 36px;
-    text-align: center;
-}
-
-#btn-add,
-.btn-add {
-    width: 320px;
-}
-
-#pop-up[hidden],
-.pop-up[hidden] {
-    display: none;
-}
-
-#pop-up,
-.pop-up {
-    position: fixed;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    padding: 16px;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.popup-content {
-    width: 360px;
-    padding: 24px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
-
-.popup-content input,
-.popup-content select {
-    margin-bottom: 14px;
-}
-
-.popup-content button {
-    width: 100%;
-    margin-top: 8px;
-}
-
-@media (max-width: 480px) {
-    .item-tab,
-    .itemlist,
-    #btn-add,
-    .btn-add,
-    .popup-content {
-        width: 100%;
-    }
-
-    .itemlist li {
-        grid-template-columns: 1fr 70px 50px;
-        gap: 8px;
-    }
-
-    h1 {
-        font-size: 28px;
-        letter-spacing: 1px;
-    }
-}
+/* ---------- タ
