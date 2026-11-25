@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const confirmButton = document.querySelector('.btn-confirm, #btn-confirm');
 	const cancelButton = document.querySelector('.btn-cancel, #btn-cancel');
 	const itemList = document.querySelector('.itemlist, #itemlist');
+	let editingItem = null;
+	let currentTab = 'all';
 
 	if (addButton && popup) {
 		addButton.addEventListener('click', () => {
@@ -25,18 +27,59 @@ document.addEventListener('DOMContentLoaded', () => {
 			const typeInput = document.querySelector('#input-type');
 			const type = typeInput?.value;
 
-			const item = document.createElement('li');
+			if (editingItem) {
+    			editingItem.querySelector('.item-name').textContent = name;
+
+    			editingItem.querySelector('.item-num').value = num;
+
+    			editingItem.querySelector('.item-unit').textContent = unit;
+
+    			editingItem.dataset.type = type;
+
+    			editingItem = null;
+				document.querySelectorAll('#itemlist li').forEach(item => {
+
+    				if (
+       					currentTab === 'all' ||
+        				item.dataset.type === currentTab
+    				) {
+        				item.style.display = '';
+    				} else {
+        				item.style.display = 'none';
+    				}
+
+			});
+			}
+			else{
+				const item = document.createElement('li');
 				item.dataset.type = type;
 				const nameText = document.createElement('span');
+				nameText.classList.add('item-name');
 				nameText.textContent = `${name} `;
 				const itemNumInput = document.createElement('input');
 				itemNumInput.type = 'number';
 				itemNumInput.value = num;
 				itemNumInput.min = '0';
+				itemNumInput.classList.add('item-num');
 				const unitText = document.createElement('span');
 				unitText.textContent = unit;
-				item.append(nameText, itemNumInput, unitText);
+				unitText.classList.add('item-unit');
+				const editButton = document.createElement('button');
+				editButton.textContent = '編集';
+				editButton.addEventListener('click', () => {
+					editingItem = item;
+    				nameInput.value = nameText.textContent.trim();
+    				numInput.value = itemNumInput.value;
+    				unitInput.value = unitText.textContent;
+    				typeInput.value = item.dataset.type;
+
+    				popup.hidden = false;
+    				popup.style.display = 'block';
+    				popup.classList.add('show');
+				});
+				item.append(nameText, itemNumInput, unitText, editButton);
 			itemList.appendChild(item);
+			}
 
 				if (nameInput) nameInput.value = '';
 			if (numInput) numInput.value = '';
@@ -59,7 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	tabButtons.forEach(button => {
     	button.addEventListener('click', () => {
+
         	const selectedType = button.dataset.type;
+			currentTab = button.dataset.type;
 
         	document.querySelectorAll('#itemlist li').forEach(item => {
 
@@ -75,7 +120,5 @@ document.addEventListener('DOMContentLoaded', () => {
          	});
     	});
 	});
-
-
 });
 
